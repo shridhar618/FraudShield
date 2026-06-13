@@ -127,23 +127,37 @@ Open: **http://localhost:5173**
 
 ---
 
-## 🌐 Deploy on PythonAnywhere (Free)
+## 🌐 Deploy on Render (Free)
 
-```bash
-# 1. Upload project files
-# 2. Bash console:
-pip install --user flask flask-cors scikit-learn imbalanced-learn pandas numpy joblib
+This project deploys on Render as one Python web service. During the build,
+Vite creates `backend/frontend/dist`, and Flask serves that production frontend.
 
-# 3. Build React (optional, Flask can serve the pre-built dist)
-npm install && npm run build
+### Option A — Blueprint deploy
 
-# 4. Web tab → Manual config → Python 3.10
-# WSGI file:
-import sys
-sys.path.insert(0, '/home/USERNAME/fraudshield_pro/backend')
-from app import app as application
+1. Push this repo to GitHub.
+2. In Render, choose **New +** → **Blueprint**.
+3. Select this repo.
+4. Render will read `render.yaml` and create the service.
 
-# 5. Reload → live at USERNAME.pythonanywhere.com
+### Option B — Manual web service
+
+Use these settings in **New +** → **Web Service**:
+
+```txt
+Runtime: Python 3
+Build Command: npm ci && npm run build && pip install -r requirements.txt
+Start Command: gunicorn backend.app:app --bind 0.0.0.0:$PORT
+Health Check Path: /health
+Instance Type: Free
+```
+
+After deployment, test:
+
+```txt
+https://YOUR-SERVICE.onrender.com/
+https://YOUR-SERVICE.onrender.com/health
+https://YOUR-SERVICE.onrender.com/metrics
+https://YOUR-SERVICE.onrender.com/options
 ```
 
 ---

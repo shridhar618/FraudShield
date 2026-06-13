@@ -225,7 +225,7 @@ def health():
 
 if __name__ == "__main__":
     host = os.environ.get("FRAUDSHIELD_HOST", "127.0.0.1")
-    port = int(os.environ.get("FRAUDSHIELD_PORT", "5001"))
+    port = int(os.environ.get("PORT", os.environ.get("FRAUDSHIELD_PORT", "5001")))
     debug = os.environ.get("FRAUDSHIELD_DEBUG", "1") == "1"
 
     print("🚀 FraudShield AI API starting...")
