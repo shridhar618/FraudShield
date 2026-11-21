@@ -1,4 +1,6 @@
 # 🛡️ FraudShield AI — Professional Credit Card Fraud Detection
+
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
 ### MCA Final Year Project · React + Flask + Random Forest
 
 ---
@@ -68,6 +70,15 @@ npm run dev
 Open: **http://localhost:5173**
 
 ---
+
+## Environment variables
+
+| Variable | Purpose | Default |
+|---|---|---|
+| `FRAUDSHIELD_HOST` | Host the Flask API binds to | `127.0.0.1` |
+| `PORT / FRAUDSHIELD_PORT` | API port (`PORT` takes precedence) | `5001` |
+| `FRAUDSHIELD_DEBUG` | Set to `1` to enable Flask debug mode | `1` |
+| `FRAUDSHIELD_API_BASE` | Backend URL the Vite dev server proxies to | `http://127.0.0.1:5001` |
 
 ## 📡 API Reference
 
